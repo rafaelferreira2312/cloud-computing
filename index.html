@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Computing 2025: Guia Completo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --aws-orange: #FF9900;
+            --aws-dark: #E68900;
+            --aws-light: #FFF4E6;
+            --azure-blue: #0078D4;
+            --azure-dark: #0066B8;
+            --azure-light: #E6F2FC;
+            --google-blue: #4285F4;
+            --google-dark: #3367D6;
+            --google-light: #E8F0FE;
+            --oracle-red: #F80000;
+            --oracle-dark: #D90000;
+            --oracle-light: #FFE6E6;
+            --alibaba-orange: #FF6A00;
+            --alibaba-dark: #E65C00;
+            --alibaba-light: #FFF0E6;
+            --ibm-blue: #054ADA;
+            --ibm-dark: #043FB8;
+            --ibm-light: #E6EBFA;
+            --huawei-red: #FF0000;
+            --huawei-dark: #D90000;
+            --huawei-light: #FFE6E6;
+            --digitalocean-blue: #0080FF;
+            --digitalocean-dark: #0066CC;
+            --digitalocean-light: #E6F2FF;
+            --tencent-blue: #0084FF;
+            --tencent-dark: #006ACC;
+            --tencent-light: #E6F2FF;
+            --saas-green: #00C853;
+            --paas-blue: #2979FF;
+            --iaas-purple: #AA00FF;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #666;
+            --linkedin-blue: #0077b5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2980, #26d0ce);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .signature {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: right;
+        }
+        
+        .signature p {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--linkedin-blue);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .linkedin-btn:hover {
+            background-color: #006097;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a2980;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #1a2980, #26d0ce);
+            margin: 10px auto;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .provider-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .provider-card {
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .provider-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .aws-card { background: linear-gradient(135deg, var(--aws-light), white); border-left: 6px solid var(--aws-orange); }
+        .azure-card { background: linear-gradient(135deg, var(--azure-light), white); border-left: 6px solid var(--azure-blue); }
+        .google-card { background: linear-gradient(135deg, var(--google-light), white); border-left: 6px solid var(--google-blue); }
+        .oracle-card { background: linear-gradient(135deg, var(--oracle-light), white); border-left: 6px solid var(--oracle-red); }
+        .alibaba-card { background: linear-gradient(135deg, var(--alibaba-light), white); border-left: 6px solid var(--alibaba-orange); }
+        .ibm-card { background: linear-gradient(135deg, var(--ibm-light), white); border-left: 6px solid var(--ibm-blue); }
+        .huawei-card { background: linear-gradient(135deg, var(--huawei-light), white); border-left: 6px solid var(--huawei-red); }
+        .digitalocean-card { background: linear-gradient(135deg, var(--digitalocean-light), white); border-left: 6px solid var(--digitalocean-blue); }
+        .tencent-card { background: linear-gradient(135deg, var(--tencent-light), white); border-left: 6px solid var(--tencent-blue); }
+        
+        .provider-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .market-share-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .market-share-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+        
+        .service-models {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .model-card {
+            border-radius: 12px;
+            padding: 30px;
+            color: white;
+            text-align: center;
+        }
+        
+        .iaas-card { background: linear-gradient(135deg, #8E2DE2, #4A00E0); }
+        .paas-card { background: linear-gradient(135deg, #00B4DB, #0083B0); }
+        .saas-card { background: linear-gradient(135deg, #56AB2F, #A8E063); }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, #1a2980, #26d0ce);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .pricing-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .trends-2025 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .trend-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #1a2980;
+        }
+        
+        .faq-answer {
+            display: none;
+            padding-top: 15px;
+            border-top: 1px solid var(--medium-gray);
+            margin-top: 10px;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a2980;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #1a2980, #26d0ce);
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .footer-signature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-signature p {
+            margin: 0;
+        }
+        
+        .hashtags {
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .hashtags span {
+            margin: 0 5px;
+        }
+        
+        .ai-trends {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+        
+        .region-map {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .region-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 1200px) {
+            .provider-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .service-models {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .service-models, .trends-2025, .pricing-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .provider-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .signature {
+                position: static;
+                text-align: center;
+                margin-top: 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="signature">
+                <p>Desenvolvido por:</p>
+                <a href="https://www.linkedin.com/in/rafael-ferreira-dev/" class="linkedin-btn" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    Rafael Ferreira da Silva
+                </a>
+            </div>
+            <div class="logo">☁️</div>
+            <h1>Cloud Computing 2025: Guia Completo</h1>
+            <p class="subtitle">Tudo sobre AWS, Azure, Google Cloud, Oracle, Alibaba, IBM, Huawei, Digital Ocean, Tencent, IaaS, PaaS, SaaS e tendências para 2025</p>
+        </div>
+    </header>
+    
+    <section id="market-overview">
+        <div class="container">
+            <h2 class="section-title">Panorama do Mercado Cloud 2025</h2>
+            <div class="card">
+                <h3>📊 Market Share Global 2025</h3>
+                <div class="provider-grid">
+                    <div class="provider-card aws-card">
+                        <div class="provider-icon">⚡</div>
+                        <h4>AWS</h4>
+                        <p><strong>32% market share</strong></p>
+                        <p>Líder global em infraestrutura cloud</p>
+                        <div class="market-share-bar">
+                            <div class="market-share-fill" style="width: 32%; background-color: var(--aws-orange);"></div>
+                        </div>
+                    </div>
+                    <div class="provider-card azure-card">
+                        <div class="provider-icon">🪟</div>
+                        <h4>Microsoft Azure</h4>
+                        <p><strong>23% market share</strong></p>
+                        <p>Forte em enterprise e integração Microsoft</p>
+                        <div class="market-share-bar">
+                            <div class="market-share-fill" style="width: 23%; background-color: var(--azure-blue);"></div>
+                        </div>
+                    </div>
+                    <div class="provider-card google-card">
+                        <div class="provider-icon">🔍</div>
+                        <h4>Google Cloud</h4>
+                        <p><strong>10% market share</strong></p>
+                        <p>Líder em AI/ML e data analytics</p>
+                        <div class="market-share-bar">
+                            <div class="market-share-fill" style="width: 10%; background-color: var(--google-blue);"></div>
+                        </div>
+                    </div>
+                    <div class="provider-card alibaba-card">
+                        <div class="provider-icon">🌏</div>
+                        <h4>Alibaba Cloud</h4>
+                        <p><strong>6% market share</strong></p>
+                        <p>Dominante na Ásia e mercado chinês</p>
+                        <div class="market-share-bar">
+                            <div class="market-share-fill" style="width: 6%; background-color: var(--alibaba-orange);"></div>
+                        </div>
+                    </div>
+                    <div class="provider-card oracle-card">
+                        <div class="provider-icon">🏛️</div>
+                        <h4>Oracle Cloud</h4>
+                        <p><strong>4% market share</strong></p>
+                        <p>Forte em bancos de dados e aplicações enterprise</p>
+                        <div class="market-share-bar">
+                            <div class="market-share-fill" style="width: 4%; background-color: var(--oracle-red);"></div>
+                        </div>
+                    </div>
+                    <div class="provider-card ibm-card">
+                        <div class="provider-icon">💼</div>
+                        <h4>IBM Cloud</h4>
+                        <p><strong>3% market share</strong></p>
+                        <p>Foco em hybrid cloud e AI empresarial</p>
+                        <div class="market-share-bar">
+                            <div class="market-share-fill" style="width: 3%; background-color: var(--ibm-blue);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="service-models">
+        <div class="container">
+            <h2 class="section-title">Modelos de Serviço: IaaS, PaaS, SaaS</h2>
+            <div class="card">
+                <div class="service-models">
+                    <div class="model-card iaas-card">
+                        <h3>🖥️ IaaS</h3>
+                        <p><strong>Infrastructure as a Service</strong></p>
+                        <p>Controle total sobre infraestrutura</p>
+                        <ul style="text-align: left; margin-top: 15px;">
+                            <li>Virtual Machines</li>
+                            <li>Storage</li>
+                            <li>Networking</li>
+                            <li>Firewalls</li>
+                        </ul>
+                    </div>
+                    <div class="model-card paas-card">
+                        <h3>⚙️ PaaS</h3>
+                        <p><strong>Platform as a Service</strong></p>
+                        <p>Foco no desenvolvimento de aplicações</p>
+                        <ul style="text-align: left; margin-top: 15px;">
+                            <li>Runtime environments</li>
+                            <li>Databases</li>
+                            <li>Development tools</li>
+                            <li>Middleware</li>
+                        </ul>
+                    </div>
+                    <div class="model-card saas-card">
+                        <h3>📱 SaaS</h3>
+                        <p><strong>Software as a Service</strong></p>
+                        <p>Aplicações prontas para uso</p>
+                        <ul style="text-align: left; margin-top: 15px;">
+                            <li>Email (Gmail, Outlook)</li>
+                            <li>CRM (Salesforce)</li>
+                            <li>Office 365</li>
+                            <li>Google Workspace</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="providers-comparison">
+        <div class="container">
+            <h2 class="section-title">Comparação Entre Provedores</h2>
+            <div class="card">
+                <h3>📋 Características Principais</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Provedor</th>
+                            <th>Ponto Forte</th>
+                            <th>Melhor Para</th>
+                            <th>Custo Médio (VM)</th>
+                            <th>Regiões Globais</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>AWS</strong></td>
+                            <td>Ecossistema mais completo</td>
+                            <td>Startups, Enterprise, Scale</td>
+                            <td>$70/mês (t3.medium)</td>
+                            <td>31 regiões</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Azure</strong></td>
+                            <td>Integração Microsoft</td>
+                            <td>Empresas Windows, .NET</td>
+                            <td>$65/mês (D2 v3)</td>
+                            <td>60+ regiões</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google Cloud</strong></td>
+                            <td>AI/ML e Kubernetes</td>
+                            <td>Data Science, Containers</td>
+                            <td>$68/mês (e2-medium)</td>
+                            <td>35 regiões</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Oracle</strong></td>
+                            <td>Autonomous Database</td>
+                            <td>ERP, Databases críticos</td>
+                            <td>$75/mês (VM.Standard)</td>
+                            <td>39 regiões</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Alibaba</strong></td>
+                            <td>Preço competitivo Ásia</td>
+                            <td>Mercado chinês, E-commerce</td>
+                            <td>$55/mês (ecs.g6)</td>
+                            <td>28 regiões</td>
+                        </tr>
+                        <tr>
+                            <td><strong>IBM</strong></td>
+                            <td>Hybrid Cloud</td>
+                            <td>Empresas tradicionais</td>
+                            <td>$80/mês (VPC)</td>
+                            <td>20 regiões</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <section id="trends-2025">
+        <div class="container">
+            <h2 class="section-title">Tendências Cloud 2025</h2>
+            <div class="card">
+                <div class="trends-2025">
+                    <div class="trend-card">
+                        <h4>🤖 AI-Native Cloud</h4>
+                        <p>Infraestrutura otimizada para workloads de IA generativa</p>
+                        <ul style="margin-top: 10px;">
+                            <li>GPUs especializadas</li>
+                            <li>Model training as service</li>
+                            <li>Vector databases</li>
+                        </ul>
+                    </div>
+                    <div class="trend-card">
+                        <h4>🌐 Quantum Cloud</h4>
+                        <p>Acesso a computação quântica via cloud</p>
+                        <ul style="margin-top: 10px;">
+                            <li>IBM Quantum</li>
+                            <li>Azure Quantum</li>
+                            <li>Google Quantum AI</li>
+                        </ul>
+                    </div>
+                    <div class="trend-card">
+                        <h4>🔒 Confidential Computing</h4>
+                        <p>Proteção de dados em uso (não apenas em repouso)</p>
+                        <ul style="margin-top: 10px;">
+                            <li>SGX da Intel</li>
+                            <li>SEV da AMD</li>
+                            <li>Trusted Execution</li>
+                        </ul>
+                    </div>
+                    <div class="trend-card">
+                        <h4>🌍 Sustainable Cloud</h4>
+                        <p>Foco em carbono zero e energia renovável</p>
+                        <ul style="margin-top: 10px;">
+                            <li>Carbon-aware computing</li>
+                            <li>Energy-efficient data centers</li>
+                            <li>Sustainability APIs</li>
+                        </ul>
+                    </div>
+                    <div class="trend-card">
+                        <h4>🔄 Cloud FinOps</h4>
+                        <p>Gestão financeira otimizada de recursos cloud</p>
+                        <ul style="margin-top: 10px;">
+                            <li>Cost optimization AI</li>
+                            <li>Real-time spending alerts</li>
+                            <li>Automated right-sizing</li>
+                        </ul>
+                    </div>
+                    <div class="trend-card">
+                        <h4>🔗 Edge-Cloud Continuum</h4>
+                        <p>Integração perfeita entre edge e cloud</p>
+                        <ul style="margin-top: 10px;">
+                            <li>5G + Cloud</li>
+                            <li>IoT real-time processing</li>
+                            <li>Low-latency applications</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="pricing-strategies">
+        <div class="container">
+            <h2 class="section-title">Estratégias de Preços 2025</h2>
+            <div class="card">
+                <div class="pricing-comparison">
+                    <div class="pricing-card">
+                        <h4>AWS</h4>
+                        <p style="font-size: 2rem; color: var(--aws-orange);">$0.10/GB</p>
+                        <p>Storage S3 Standard</p>
+                        <p style="margin-top: 10px;">Compute: $0.0234/hora</p>
+                    </div>
+                    <div class="pricing-card">
+                        <h4>Azure</h4>
+                        <p style="font-size: 2rem; color: var(--azure-blue);">$0.12/GB</p>
+                        <p>Storage Blob Hot</p>
+                        <p style="margin-top: 10px;">Compute: $0.0220/hora</p>
+                    </div>
+                    <div class="pricing-card">
+                        <h4>Google Cloud</h4>
+                        <p style="font-size: 2rem; color: var(--google-blue);">$0.09/GB</p>
+                        <p>Storage Standard</p>
+                        <p style="margin-top: 10px;">Compute: $0.0210/hora</p>
+                    </div>
+                    <div class="pricing-card">
+                        <h4>Oracle</h4>
+                        <p style="font-size: 2rem; color: var(--oracle-red);">$0.08/GB</p>
+                        <p>Object Storage</p>
+                        <p style="margin-top: 10px;">Compute: $0.0245/hora</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="ai-cloud-integration">
+        <div class="container">
+            <div class="ai-trends">
+                <h2 class="section-title" style="color: white;">🤖 IA Generativa na Cloud 2025</h2>
+                <div class="card" style="background: rgba(255,255,255,0.95);">
+                    <div class="provider-grid">
+                        <div class="provider-card aws-card">
+                            <h4>AWS Bedrock</h4>
+                            <p>Access to Amazon Titan, Anthropic Claude, AI21 Labs, Cohere</p>
+                            <p><strong>Preço:</strong> $0.0004/1K tokens</p>
+                        </div>
+                        <div class="provider-card azure-card">
+                            <h4>Azure OpenAI</h4>
+                            <p>GPT-4, DALL-E 3, Azure AI Studio</p>
+                            <p><strong>Preço:</strong> $0.03/1K tokens (GPT-4)</p>
+                        </div>
+                        <div class="provider-card google-card">
+                            <h4>Google Vertex AI</h4>
+                            <p>PaLM 2, Gemini Pro, Imagen</p>
+                            <p><strong>Preço:</strong> $0.0005/1K tokens</p>
+                        </div>
+                        <div class="provider-card oracle-card">
+                            <h4>Oracle Generative AI</h4>
+                            <p>Integrated with Oracle Cloud</p>
+                            <p><strong>Preço:</strong> Enterprise pricing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="hybrid-multi-cloud">
+        <div class="container">
+            <h2 class="section-title">Estratégias Multi-Cloud 2025</h2>
+            <div class="card">
+                <h3>🌐 Arquiteturas Modernas</h3>
+                <div class="provider-grid">
+                    <div class="provider-card">
+                        <h4>Cloud Agnostic</h4>
+                        <p>Aplicações portáveis entre provedores</p>
+                        <ul>
+                            <li>Kubernetes (EKS, AKS, GKE)</li>
+                            <li>Terraform multi-cloud</li>
+                            <li>Containerized workloads</li>
+                        </ul>
+                    </div>
+                    <div class="provider-card">
+                        <h4>Best-of-Breed</h4>
+                        <p>Serviços específicos por provedor</p>
+                        <ul>
+                            <li>AWS: Lambda, S3</li>
+                            <li>Azure: Active Directory</li>
+                            <li>Google: BigQuery, AI</li>
+                        </ul>
+                    </div>
+                    <div class="provider-card">
+                        <h4>Cloud Bursting</h4>
+                        <p>Expansão para cloud pública quando necessário</p>
+                        <ul>
+                            <li>On-prem + Cloud</li>
+                            <li>Auto-scaling cross-cloud</li>
+                            <li>Disaster Recovery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="regions-global">
+        <div class="container">
+            <h2 class="section-title">Cobertura Global 2025</h2>
+            <div class="card">
+                <h3>🌍 Presença por Região</h3>
+                <div class="region-map">
+                    <div class="region-item">
+                        <h5>América do Norte</h5>
+                        <p><strong>Todos os provedores</strong></p>
+                        <p>12+ regiões cada</p>
+                    </div>
+                    <div class="region-item">
+                        <h5>Europa</h5>
+                        <p><strong>AWS, Azure, Google</strong></p>
+                        <p>8-10 regiões cada</p>
+                    </div>
+                    <div class="region-item">
+                        <h5>Ásia-Pacífico</h5>
+                        <p><strong>Alibaba líder</strong></p>
+                        <p>Expansão agressiva</p>
+                    </div>
+                    <div class="region-item">
+                        <h5>América do Sul</h5>
+                        <p><strong>AWS, Azure, Google</strong></p>
+                        <p>São Paulo, Santiago</p>
+                    </div>
+                    <div class="region-item">
+                        <h5>Oriente Médio</h5>
+                        <p><strong>Crescimento rápido</strong></p>
+                        <p>Dubai, Bahrein, Qatar</p>
+                    </div>
+                    <div class="region-item">
+                        <h5>África</h5>
+                        <p><strong>Em expansão</strong></p>
+                        <p>Johannesburg, Cairo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes 2025</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Qual provedor escolher em 2025?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Depende do seu caso de uso:</strong></p>
+                        <ul>
+                            <li><strong>AWS:</strong> Para ecossistema mais completo e startups</li>
+                            <li><strong>Azure:</strong> Para empresas Microsoft e .NET</li>
+                            <li><strong>Google Cloud:</strong> Para AI/ML e data analytics</li>
+                            <li><strong>Oracle:</strong> Para aplicações Oracle e databases críticos</li>
+                            <li><strong>Alibaba:</strong> Para mercado asiático e e-commerce</li>
+                            <li><strong>Multi-Cloud:</strong> Para evitar vendor lock-in</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quanto custa migrar para cloud em 2025?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Custos de migração típicos:</strong></p>
+                        <ul>
+                            <li><strong>Análise e planejamento:</strong> $10K - $50K</li>
+                            <li><strong>Migração de dados:</strong> $0.01 - $0.10 por GB</li>
+                            <li><strong>Re-architecting:</strong> $50K - $200K+</li>
+                            <li><strong>Treinamento da equipe:</strong> $5K - $20K</li>
+                            <li><strong>Ongoing costs:</strong> 20-40% menos que on-prem</li>
+                        </ul>
+                        <p><strong>ROI típico:</strong> 12-24 meses para payback</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como evitar vendor lock-in?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Estratégias anti lock-in:</strong></p>
+                        <ul>
+                            <li><strong>Use containers:</strong> Kubernetes é portable</li>
+                            <li><strong>Infra as Code:</strong> Terraform multi-cloud</li>
+                            <li><strong>Avoid proprietary services:</strong> Use serviços genéricos</li>
+                            <li><strong>Multi-cloud desde o início:</strong> Design for portability</li>
+                            <li><strong>API gateways:</strong> Abstract backend services</li>
+                            <li><strong>Data portability:</strong> Regular backups cross-cloud</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Qual o futuro da computação em nuvem?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p><strong>Tendências para 2025-2030:</strong></p>
+                        <ul>
+                            <li><strong>AI-Native Infrastructure:</strong> Clouds built for AI workloads</li>
+                            <li><strong>Quantum Computing as Service:</strong> Acesso democratizado</li>
+                            <li><strong>Edge-Cloud Continuum:</strong> Computação ubíqua</li>
+                            <li><strong>Sustainable Cloud:</strong> Net-zero data centers</li>
+                            <li><strong>Autonomous Operations:</strong> Self-healing, self-optimizing</li>
+                            <li><strong>Industry-Specific Clouds:</strong> Healthcare, finance, manufacturing</li>
+                            <li><strong>Serverless Dominance:</strong> >50% of workloads</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-signature">
+                    <p>Desenvolvido por Rafael Ferreira da Silva</p>
+                    <a href="https://www.linkedin.com/in/rafael-ferreira-dev/" class="linkedin-btn" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        Conecte-se no LinkedIn
+                    </a>
+                </div>
+                <div>
+                    <p>Guia completo sobre Cloud Computing 2025 para CTOs, desenvolvedores, arquitetos de solução e decisores de tecnologia</p>
+                    <div class="hashtags">
+                        <span>#CloudComputing</span>
+                        <span>#AWS</span>
+                        <span>#Azure</span>
+                        <span>#GoogleCloud</span>
+                        <span>#IaaS</span>
+                        <span>#PaaS</span>
+                        <span>#SaaS</span>
+                        <span>#MultiCloud</span>
+                        <span>#DevOps</span>
+                        <span>#Tecnologia</span>
+                        <span>#Innovation</span>
+                        <span>#DigitalTransformation</span>
+                        <span>#AI</span>
+                        <span>#MachineLearning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const answer = question.nextElementSibling;
+                const toggle = question.querySelector('.faq-toggle');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-toggle').textContent = '+';
+                    }
+                });
+                
+                // Toggle current FAQ
+                faqItem.classList.toggle('active');
+                toggle.textContent = faqItem.classList.contains('active') ? '−' : '+';
+            });
+        });
+    </script>
+</body>
+</html>
